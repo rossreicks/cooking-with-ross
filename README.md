@@ -1,47 +1,60 @@
-# Astro Starter Kit: Minimal
+# 🍲 Cooking With Ross
 
-```sh
-npm create astro@latest -- --template minimal
+**Cooking With Ross** is a recipe website built with **Astro** and styled with **Tailwind CSS**. It offers an easy way to manage and display delicious recipes using Markdown, providing a clean and responsive interface.
+
+## 🚀 Features
+- Recipes written in Markdown with metadata support
+- Responsive design with Tailwind CSS
+- Dynamic recipe pages powered by Astro
+- Easy navigation with a global header
+
+## 📂 Project Structure
+
+```
+/src
+    /content
+        /recipes # Markdown recipes
+    /layouts # Layout templates
+    /pages # Routes and static pages
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## 🛠️ Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/rossreicks/cooking-with-ross.git
+   cd cooking-with-ross
+   ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## 🚀 Project Structure
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-Inside of your Astro project, you'll see the following folders and files:
+## 📝 How to add a recipe
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+1. Create a new Markdown file in src/content/recipes/.
+
+2. Use this template:
+
+```markdown
+---
+title: "Recipe Title"
+date: 2024-10-21
+prep_time: "15m"
+cook_time: "30m"
+tags: ["tag1", "tag2"]
+servings: 4
+---
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+3. Add your recipe content below the metadata.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## 💻 Technologies Used
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Astro
+- Tailwind CSS
