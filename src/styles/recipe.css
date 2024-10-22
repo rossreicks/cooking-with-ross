@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h3 {
+    @apply text-2xl font-semibold text-gray-800 mb-4 mt-6;
+}
+
+ul {
+    @apply list-disc list-inside space-y-2;
+}
+
+ol {
+    @apply list-decimal list-inside space-y-2;
+}
+
+a {
+    @apply text-blue-600 hover:underline;
+}
+
+hr {
+    @apply my-6;
+}

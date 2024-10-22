@@ -1,0 +1,26 @@
+---
+import RecipeLayout from '../../layouts/RecipeLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Generate the paths for each recipe based on its slug
+export async function getStaticPaths() {
+  const recipes = await getCollection('recipes');
+  return recipes.map((recipe) => ({
+    params: { slug: recipe.slug },
+  }));
+}
+
+// Get the collection of recipes to match the current route's slug
+const recipes = await getCollection('recipes');
+const recipe = recipes.find((r) => r.slug === Astro.params.slug);
+
+if (!recipe) {
+  throw new Error(`Recipe not found for slug: ${Astro.params.slug}`);
+}
+
+const { Content } = await recipe.render();
+---
+
+<RecipeLayout {...recipe.data}>
+  <Content />
+</RecipeLayout>
