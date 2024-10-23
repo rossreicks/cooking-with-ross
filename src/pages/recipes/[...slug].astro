@@ -1,5 +1,5 @@
 ---
-import RecipeLayout from '../../layouts/RecipeLayout.astro';
+import "../../styles/recipe.css";
 import { getCollection } from 'astro:content';
 
 // Generate the paths for each recipe based on its slug
@@ -19,8 +19,39 @@ if (!recipe) {
 }
 
 const { Content } = await recipe.render();
+
+const { title, prep_time, cook_time, tags, servings } = recipe.data;
 ---
 
-<RecipeLayout {...recipe.data}>
-  <Content />
-</RecipeLayout>
+<html lang="en">
+	<head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+	</head>
+	<body class="bg-gray-50 min-h-screen">
+		<header class="bg-white shadow-md p-4">
+			<div class="max-w-3xl mx-auto flex justify-between items-center">
+				<a href="/" class="text-2xl font-bold text-blue-600"
+					>Cooking with Ross</a
+				>
+			</div>
+		</header>
+		<div class="max-w-2xl mx-auto p-6">
+			<h1 class="text-4xl font-bold text-gray-800 mb-2">{title}</h1>
+            <p class="text-lg text-gray-600 mb-6 flex flex-col sm:flex-row sm:divide-x sm:divide-gray-400 md:text-center text-left">
+                <span class='sm:pr-4'>Prep Time: {prep_time}</span>
+                <span class='sm:px-4'>Cook Time: {cook_time}</span>
+                <span class='sm:pl-4'>Servings: {servings}</span>
+			</p>
+
+            <Content />
+
+			<h3>Tags</h3>
+			<ul>
+				{tags.map((tag) => <li>{tag}</li>)}
+			</ul>
+		</div>
+	</body>
+</html>
+
